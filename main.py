@@ -1,6 +1,8 @@
 from customtkinter import *
-from os import path
+from os import path, system
 import csv
+
+LINK = ""
 
 
 class App:
@@ -126,13 +128,15 @@ class App:
                                 login_state = 3
 
                     if login_state == 1:
-                        print("LOGIN")
+                        system(f"start {LINK}")
                     elif login_state == 2:
                         self.login_error(3)
                     elif login_state == 3:
                         self.login_error(2)
+                        print("1")
             except FileNotFoundError as e:
                 self.login_error(2)
+                print("2")
 
     def register(self, user: str, key: str):
         self.username = user
